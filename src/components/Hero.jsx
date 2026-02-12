@@ -69,15 +69,14 @@ const Hero = () => {
                     </div>
 
                     {/* Main Visual - Overlapping Images */}
-                    <div className="w-full lg:w-1/2 relative mt-20 lg:mt-0 h-[500px] sm:h-[700px] lg:h-[800px]">
+                    <div className="w-full lg:w-1/2 relative mt-4 lg:mt-0 h-[450px] sm:h-[700px] lg:h-[800px] flex items-center justify-center">
 
-                        {/* Right Video (Woman) */}
+                        {/* Right Video (Woman) - Brought closer on mobile */}
                         <motion.div
-                            style={{ y: yRight }}
                             initial={{ opacity: 0, scale: 1.1, x: 50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-0 right-0 w-3/4 md:w-3/5 z-0 group"
+                            className="absolute top-10 right-0 sm:right-0 w-3/5 sm:w-3/5 z-0 group"
                         >
                             <div className="relative overflow-hidden shadow-2xl aspect-[4/5]">
                                 <video
@@ -88,17 +87,15 @@ const Hero = () => {
                                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                                     src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
                                 />
-                                <div className="absolute inset-0 bg-maroon/20 mix-blend-multiply opacity-50 group-hover:opacity-0 transition-opacity duration-700"></div>
                             </div>
                         </motion.div>
 
-                        {/* Bottom Left Image (Man) */}
+                        {/* Bottom Left Image (Man) - Brought closer on mobile */}
                         <motion.div
-                            style={{ y: yLeft }}
                             initial={{ opacity: 0, scale: 0.9, x: -50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             transition={{ duration: 1.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute -bottom-10 left-0 w-2/3 md:w-2/5 z-20 group"
+                            className="absolute bottom-0 left-0 sm:left-0 w-2/5 sm:w-2/5 z-20 group"
                         >
                             <div className="relative overflow-hidden shadow-2xl aspect-[3/4] border-4 border-cream/20">
                                 <img
@@ -106,17 +103,15 @@ const Hero = () => {
                                     alt="Men's Finery"
                                     className="w-full h-full object-cover sepia-[0.3] hover:sepia-0 transition-all duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-gold/10 mix-blend-overlay opacity-60 group-hover:opacity-0 transition-opacity duration-700"></div>
                             </div>
                         </motion.div>
 
-                        {/* Middle Joint Video - Main Focus */}
+                        {/* Middle Joint Video - Main Focus - Centered on mobile */}
                         <motion.div
-                            style={{ y: yCenter }}
-                            initial={{ opacity: 0, y: 100 }}
+                            initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-1/4 left-1/4 w-3/4 md:w-2/3 z-10 group cursor-pointer"
+                            className="relative w-[85%] sm:w-2/3 z-10 group cursor-pointer"
                             onClick={() => setIsVideoOpen(true)}
                         >
                             <div className="relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(76,13,2,0.5)] border-[8px] md:border-[12px] border-cream aspect-video">

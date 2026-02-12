@@ -51,10 +51,10 @@ const HeritageStack = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
-                            className="text-4xl md:text-5xl lg:text-7xl font-serif text-maroon uppercase leading-[1.1] tracking-tighter"
+                            className="text-4xl md:text-5xl lg:text-7xl font-serif text-white uppercase leading-[1.1] tracking-tighter"
                         >
                             THE HERITAGE <br />
-                            <span className="text-gold italic">COLLECTION.</span>
+                            <span className="text-white italic">COLLECTION.</span>
                         </motion.h2>
                     </div>
                 </div>
