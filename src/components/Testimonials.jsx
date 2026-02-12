@@ -109,6 +109,8 @@ const TestimonialCard = ({ testimonial, index }) => {
                     whileInView={{ grayscale: 0, brightness: 1 }}
                     viewport={{ margin: "-150px" }}
                     transition={{ duration: 2, ease: "easeOut" }}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
                 />
 

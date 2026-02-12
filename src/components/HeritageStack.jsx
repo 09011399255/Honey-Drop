@@ -80,6 +80,8 @@ const HeritageStack = () => {
                                     transition={{ duration: 2 }}
                                     src={card.img}
                                     alt={card.title}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                                 />
                                 <div className={`absolute inset-0 bg-maroon/10 mix-blend-multiply opacity-50`}></div>

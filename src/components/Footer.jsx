@@ -58,6 +58,8 @@ const Footer = () => {
                             <img
                                 src={togetherImg}
                                 alt="The Collective"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-[2s] ease-out scale-110 group-hover:scale-100"
                             />
                             <div className="absolute inset-0 bg-maroon/20 mix-blend-multiply opacity-60 group-hover:opacity-0 transition-opacity duration-1000"></div>

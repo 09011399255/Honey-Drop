@@ -9,6 +9,15 @@ import maleImg from '../assets/Malej.png';
 
 const Hero = () => {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const { scrollY } = useScroll();
     const yLeft = useTransform(scrollY, [0, 800], [0, 150]);
     const yRight = useTransform(scrollY, [0, 800], [0, -150]);
@@ -71,26 +80,29 @@ const Hero = () => {
                     {/* Main Visual - Overlapping Images */}
                     <div className="w-full lg:w-1/2 relative mt-4 lg:mt-0 h-[450px] sm:h-[700px] lg:h-[800px] flex items-center justify-center">
 
-                        {/* Right Video (Woman) - Brought closer on mobile */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 1.1, x: 50 }}
-                            animate={{ opacity: 1, scale: 1, x: 0 }}
-                            transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-10 right-0 sm:right-0 w-3/5 sm:w-3/5 z-0 group"
-                        >
-                            <div className="relative overflow-hidden shadow-2xl aspect-[4/5]">
-                                <video
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
-                                    src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
-                                />
-                            </div>
-                        </motion.div>
+                        {/* Right Video (Woman) - HIDDEN ON MOBILE for performance */}
+                        {!isMobile && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 1.1, x: 50 }}
+                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute top-10 right-0 sm:right-0 w-3/5 sm:w-3/5 z-0 group"
+                            >
+                                <div className="relative overflow-hidden shadow-2xl aspect-[4/5]">
+                                    <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        preload="auto"
+                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                                        src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
+                                    />
+                                </div>
+                            </motion.div>
+                        )}
 
-                        {/* Bottom Left Image (Man) - Brought closer on mobile */}
+                        {/* Bottom Left Image (Man) - Load with high priority but static */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9, x: -50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -101,6 +113,8 @@ const Hero = () => {
                                 <img
                                     src={maleImg}
                                     alt="Men's Finery"
+                                    fetchpriority="high"
+                                    decoding="async"
                                     className="w-full h-full object-cover sepia-[0.3] hover:sepia-0 transition-all duration-1000 group-hover:scale-110"
                                 />
                             </div>
@@ -120,6 +134,8 @@ const Hero = () => {
                                     muted
                                     loop
                                     playsInline
+                                    preload="auto"
+                                    fetchpriority="high"
                                     className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                                     src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
                                 />

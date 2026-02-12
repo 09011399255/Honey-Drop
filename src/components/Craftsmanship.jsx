@@ -73,6 +73,8 @@ const Craftsmanship = () => {
                             <img
                                 src={card.img}
                                 alt={card.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover grayscale transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-maroon/30 group-hover:bg-transparent transition-colors duration-700"></div>
