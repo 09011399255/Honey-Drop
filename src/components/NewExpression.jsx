@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import ladyImg from '../assets/Ladyj.png';
-import cargoImg from '../assets/Cargo.png';
-import maleImg from '../assets/Malej.png';
+import ladyImg from '../assets/Ladyj.webp';
+import cargoImg from '../assets/Cargo.webp';
+import maleImg from '../assets/Jean.webp';
 
 const NewExpression = () => {
     const collections = [

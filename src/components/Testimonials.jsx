@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-import halffaceImg from '../assets/halfface.png';
-import jeanImg from '../assets/Jean.png';
-import cargoImg from '../assets/Cargo.png';
-import handgImg from '../assets/Handg.png';
+import halffaceImg from '../assets/halfface.webp';
+import jeanImg from '../assets/Jean.webp';
+import cargoImg from '../assets/Cargo.webp';
+import handgImg from '../assets/Handg.webp';
 
 const Testimonials = () => {
     const testimonials = [

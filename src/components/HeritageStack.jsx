@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import handImg from '../assets/Hand.png';
-import halfFaceImg from '../assets/halfface.png';
-import ladyImg from '../assets/Ladyj.png';
-import mfImg from '../assets/MFJ.png';
+import handImg from '../assets/Hand.webp';
+import halfFaceImg from '../assets/halfface.webp';
+import ladyImg from '../assets/Ladyj.webp';
+import mfImg from '../assets/MFJ.webp';
 
 const HeritageStack = () => {
     const cards = [

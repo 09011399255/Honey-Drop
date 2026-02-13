@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Instagram, Twitter, Mail } from 'lucide-react';
-import togetherImg from '../assets/Togetherness.png';
+import togetherImg from '../assets/Togetherness.webp';
 
 const Footer = () => {
     return (

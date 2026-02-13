@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import handImg from '../assets/Hand.png';
-import handgImg from '../assets/Handg.png';
-import halfFaceImg from '../assets/halfface.png';
-import mfImg from '../assets/MFJ.png';
+import handImg from '../assets/Hand.webp';
+import handgImg from '../assets/Handg.webp';
+import halfFaceImg from '../assets/halfface.webp';
+import mfImg from '../assets/MFJ.webp';
 
 const Craftsmanship = () => {
     const cards = [

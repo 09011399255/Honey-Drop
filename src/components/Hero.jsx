@@ -3,9 +3,9 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react';
 import VideoModal from './VideoModal';
 
-import femaleImg from '../assets/Femalej.png';
-import mfImg from '../assets/MFJ.png';
-import maleImg from '../assets/Malej.png';
+import femaleImg from '../assets/Female.webp';
+import mfImg from '../assets/MFJ.webp';
+import maleImg from '../assets/Grey.webp';
 
 const Hero = () => {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
