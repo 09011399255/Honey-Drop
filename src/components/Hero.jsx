@@ -115,7 +115,7 @@ const Hero = () => {
                                     alt="Men's Finery"
                                     fetchpriority="high"
                                     decoding="async"
-                                    className="w-full h-full object-cover sepia-[0.3] hover:sepia-0 transition-all duration-1000 group-hover:scale-110"
+                                    className="w-full h-full object-cover object-top sepia-[0.3] hover:sepia-0 transition-all duration-1000 group-hover:scale-110"
                                 />
                             </div>
                         </motion.div>

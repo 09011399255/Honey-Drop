@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Search, Menu, X, Instagram, Twitter } from 'lucide-react';
+import logo from '../assets/HoneyDrop.svg';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = () => {
                 <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center text-maroon">
                     {/* Brand Logo */}
                     <div className="flex items-center gap-4 group cursor-pointer">
-                        <div className="text-3xl font-serif font-bold tracking-tighter">H</div>
+                        <img src={logo} alt="Honey Drop Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         <div className="hidden md:block h-8 w-px bg-maroon/20 group-hover:h-10 transition-all duration-500"></div>
                         <div className="hidden md:block text-xs font-bold tracking-[0.4em] overflow-hidden">
                             <motion.span
@@ -93,7 +94,7 @@ const Navbar = () => {
                         className="fixed inset-0 z-[110] bg-maroon text-cream flex flex-col p-8"
                     >
                         <div className="flex justify-between items-center mb-20">
-                            <div className="text-3xl font-serif font-bold tracking-tighter">H</div>
+                            <img src={logo} alt="Honey Drop Logo" className="w-10 h-10 object-contain brightness-0 invert" />
                             <button onClick={() => setMobileMenuOpen(false)} className="p-2 border border-cream/20 rounded-full">
                                 <X size={24} />
                             </button>

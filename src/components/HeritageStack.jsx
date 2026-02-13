@@ -42,7 +42,7 @@ const HeritageStack = () => {
     ];
 
     return (
-        <section className="relative bg-[#A68966] z-30 py-20">
+        <section className="relative bg-[#A68966] z-30 pt-20 pb-0 mb-[-60vh]">
             {/* Header Section - Standardized Spacing */}
             <div className="container mx-auto px-8 lg:px-16 pb-12 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-maroon/10 pb-8">
@@ -68,7 +68,7 @@ const HeritageStack = () => {
                         className="sticky top-24 md:top-32 w-full origin-top"
                         style={{
                             height: "auto",
-                            marginBottom: idx === cards.length - 1 ? "0" : "40vh"
+                            marginBottom: "60vh"
                         }}
                     >
                         <div className={`w-full min-h-[60vh] md:h-[80vh] ${card.bgColor} rounded-sm shadow-2xl overflow-hidden border border-white/5 flex flex-col lg:flex-row relative group`}>

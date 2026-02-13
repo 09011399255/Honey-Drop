@@ -35,7 +35,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className="bg-maroon text-cream py-32 relative overflow-hidden">
+        <section className="bg-maroon text-cream py-32 relative z-40 overflow-hidden">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                 <div className="absolute inset-0" style={{

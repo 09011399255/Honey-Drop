@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="bg-[#A68966] pt-20 relative overflow-hidden">
             {/* Dramatic Call to Action Section */}
             <div className="container mx-auto px-6 lg:px-16 relative z-10">
-                <div className="bg-maroon rounded-sm overflow-hidden shadow-[0_50px_100px_-20px_rgba(76,13,2,0.6)] mb-12 sm:mb-20 relative group">
+                <div className="bg-maroon rounded-sm overflow-hidden shadow-[0_50px_100px_-20px_rgba(76,13,2,0.6)] mb-6 sm:mb-20 relative group">
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
                         <div className="absolute inset-0" style={{
@@ -17,7 +17,7 @@ const Footer = () => {
                         }}></div>
                     </div>
 
-                    <div className="flex flex-col items-center text-center py-16 sm:py-24 px-8 relative z-10">
+                    <div className="flex flex-col items-center text-center py-10 sm:py-24 px-8 relative z-10">
                         <motion.h2
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -53,7 +53,7 @@ const Footer = () => {
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="mt-12 sm:mt-20 w-full max-w-5xl aspect-video md:aspect-[21/9] overflow-hidden rounded-sm border-4 border-cream/10 shadow-2xl relative"
+                            className="mt-8 sm:mt-20 w-full max-w-5xl aspect-video md:aspect-[21/9] overflow-hidden rounded-sm border-4 border-cream/10 shadow-2xl relative"
                         >
                             <img
                                 src={togetherImg}
