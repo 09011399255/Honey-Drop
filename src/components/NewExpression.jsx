@@ -73,9 +73,14 @@ const NewExpression = () => {
                             {/* Gradient Overlay for Depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700"></div>
 
-                            {/* Hover UI */}
+                            {/* Hover UI - Mobile Scroll-Visible */}
                             <motion.div
-                                className="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center gap-6"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.6 }}
+                                transition={{ duration: 0.8 }}
+                                className="absolute inset-x-0 bottom-0 p-8 z-20 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 flex flex-col items-center gap-6"
                             >
                                 <Link
                                     to={item.path}

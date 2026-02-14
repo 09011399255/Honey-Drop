@@ -10,7 +10,7 @@ import handgImg from '../assets/Handg.webp';
 const Testimonials = () => {
     const testimonials = [
         {
-            text: "The fit is intentional, the materials feel substantial, and the finish is immaculate. It's rare to find a brand that blends heritage and contemporary design so seamlessly.",
+            text: "There's something powerful about how understated the designs are. They don't try too hard, yet they completely command attention.",
             author: "Zara T.",
             img: halffaceImg,
             delay: 0
@@ -22,13 +22,13 @@ const Testimonials = () => {
             delay: 0.2
         },
         {
-            text: "There's something powerful about how understated the designs are. They don't try too hard, yet they completely command attention.",
+            text: "The fit is intentional, the materials feel substantial, and the finish is immaculate. It's rare to find a brand that blends heritage and contemporary design so seamlessly.",
             author: "Kofi A.",
             img: cargoImg,
             delay: 0.4
         },
         {
-            text: "From the moment I unboxed it, I could feel the difference. The structure, the fabric, the detailing, everything felt deliberate. It's not just clothing; it feels like wearing intention.",
+            text: "From the moment I unboxed it, I could feel the difference. The structure, the design, the detailing, everything felt deliberate. It's not just jewelry; it feels like wearing intention.",
             author: "Adaeze M.",
             img: handgImg,
             delay: 0.6
