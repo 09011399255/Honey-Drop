@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ScrollColorWrapper from './ScrollColorWrapper';
 
 import ladyImg from '../assets/Ladyj.webp';
 import cargoImg from '../assets/Cargo.webp';
@@ -23,14 +24,14 @@ const NewExpression = () => {
             </div>
 
             <div className="container mx-auto px-8 lg:px-16 relative z-10">
-                <div className="flex flex-col-reverse lg:flex-row items-end justify-between mb-24 gap-16">
+                <div className="flex flex-col-reverse lg:flex-row items-start justify-between mb-24 gap-12 lg:gap-16">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1 }}
                         className="w-full lg:w-1/3"
                     >
-                        <p className="text-maroon/90 text-lg leading-relaxed font-light italic border-l-2 border-maroon/20 pl-8">
+                        <p className="text-maroon/90 text-base md:text-lg leading-relaxed font-light italic border-l-2 border-maroon/20 pl-8 text-left">
                             At Honey Drop, luxury is not excess — it is intention. Every fabric selected, every silhouette refined, every detail considered. We create pieces that carry presence without noise and power without effort.
                         </p>
                     </motion.div>
@@ -39,7 +40,7 @@ const NewExpression = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
-                        className="w-full lg:w-3/5 text-right"
+                        className="w-full lg:w-3/5 text-left lg:text-right"
                     >
                         <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-maroon uppercase leading-none tracking-tighter">
                             A NEW EXPRESSION <br />
@@ -58,13 +59,15 @@ const NewExpression = () => {
                             transition={{ duration: 1.2, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
                             className="relative group aspect-[3/4] overflow-hidden shadow-2xl bg-maroon/5"
                         >
-                            <img
-                                src={item.img}
-                                alt={item.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:grayscale-0 group-hover:scale-105"
-                            />
+                            <ScrollColorWrapper className="w-full h-full">
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover transition-all duration-[2s] group-hover:scale-105"
+                                />
+                            </ScrollColorWrapper>
 
                             {/* Gradient Overlay for Depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700"></div>

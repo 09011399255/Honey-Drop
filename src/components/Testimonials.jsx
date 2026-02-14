@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import ScrollColorWrapper from './ScrollColorWrapper';
 
 import halffaceImg from '../assets/halfface.webp';
 import jeanImg from '../assets/Jean.webp';
@@ -49,7 +50,7 @@ const Testimonials = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-serif max-w-4xl uppercase tracking-tighter leading-none mb-32"
+                    className="text-5xl md:text-7xl lg:text-8xl font-serif max-w-4xl uppercase tracking-tighter leading-none mb-16 md:mb-32 text-left"
                 >
                     VOICES FROM THOSE <br />
                     WHO KNOW THE <br />
@@ -62,12 +63,12 @@ const Testimonials = () => {
                     ))}
                 </div>
 
-                <div className="mt-40 flex justify-end">
+                <div className="mt-20 md:mt-40 flex justify-start lg:justify-end">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
-                        className="text-right"
+                        className="text-left lg:text-right"
                     >
                         <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif uppercase tracking-tighter leading-none">
                             THE STANDARD <br />
@@ -102,17 +103,19 @@ const TestimonialCard = ({ testimonial, index }) => {
                 }}
                 className="relative aspect-[3/4] overflow-hidden shadow-2xl border border-white/5 cursor-pointer"
             >
-                <motion.img
-                    src={testimonial.img}
-                    alt={testimonial.author}
-                    initial={{ grayscale: 1, brightness: 0.7 }}
-                    whileInView={{ grayscale: 0, brightness: 1 }}
-                    viewport={{ margin: "-150px" }}
-                    transition={{ duration: 2, ease: "easeOut" }}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
-                />
+                <ScrollColorWrapper className="w-full h-full">
+                    <motion.img
+                        src={testimonial.img}
+                        alt={testimonial.author}
+                        initial={{ brightness: 0.7 }}
+                        whileInView={{ brightness: 1 }}
+                        viewport={{ margin: "-150px" }}
+                        transition={{ duration: 2, ease: "easeOut" }}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                    />
+                </ScrollColorWrapper>
 
                 {/* Micro-Interaction Highlight */}
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700"></div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ScrollColorWrapper from './ScrollColorWrapper';
 
 import handImg from '../assets/Hand.webp';
 import handgImg from '../assets/Handg.webp';
@@ -28,21 +29,21 @@ const Craftsmanship = () => {
             <div className="absolute top-1/2 -left-40 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
 
             <div className="container mx-auto px-8 lg:px-16 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center justify-between mb-24 gap-12">
+                <div className="flex flex-col lg:flex-row items-start justify-between mb-24 gap-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-5xl lg:text-7xl font-serif max-w-4xl uppercase tracking-tight leading-[1.1]"
+                        className="text-4xl md:text-5xl lg:text-7xl font-serif max-w-4xl uppercase tracking-tight leading-[1.1] text-left"
                     >
                         CRAFTED TO BE WORN, <br />
                         REMEMBERED, AND <br />
-                        <span className="flex items-center gap-6">
+                        <span className="flex flex-wrap items-center gap-4 sm:gap-6">
                             <motion.div
                                 initial={{ width: 0 }}
                                 whileInView={{ width: '120px' }}
                                 transition={{ duration: 1, delay: 0.5 }}
-                                className="h-16 md:h-20 lg:h-24 overflow-hidden rounded-sm"
+                                className="h-12 md:h-20 lg:h-24 overflow-hidden rounded-sm"
                             >
                                 <img src={mfImg} alt="Jewelry Detail" className="w-full h-full object-cover scale-150 rotate-12" />
                             </motion.div>
@@ -54,7 +55,7 @@ const Craftsmanship = () => {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-cream/60 max-w-sm text-sm md:text-base leading-relaxed font-light"
+                        className="text-cream/60 max-w-sm text-sm md:text-base leading-relaxed font-light text-left"
                     >
                         The finest pieces are not chosen for a moment, they are chosen for a lifetime. Our jewellery is designed to evolve with its wearer.
                     </motion.p>
@@ -70,13 +71,15 @@ const Craftsmanship = () => {
                             transition={{ duration: 0.8, delay: idx * 0.2 }}
                             className="relative group overflow-hidden h-[450px] md:h-full cursor-pointer rounded-sm shadow-xl"
                         >
-                            <img
-                                src={card.img}
-                                alt={card.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-cover grayscale transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-110"
-                            />
+                            <ScrollColorWrapper className="w-full h-full">
+                                <img
+                                    src={card.img}
+                                    alt={card.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+                                />
+                            </ScrollColorWrapper>
                             <div className="absolute inset-0 bg-maroon/30 group-hover:bg-transparent transition-colors duration-700"></div>
 
                             {/* Button Overlay - Forced Contrast */}

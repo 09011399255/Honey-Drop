@@ -39,13 +39,13 @@ const Hero = () => {
                     {/* Text Content */}
                     <div className="w-full lg:w-1/2 z-10 text-center lg:text-left">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
                         >
                             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-maroon leading-[1.1] tracking-tight">
                                 MODERN <br className="hidden sm:block" />
-                                <span className="sm:hidden">AFRICAN LUXURY,</span>
+                                <span className="sm:hidden">AFRICAN <span className="text-gold italic">LUXURY,</span></span>
                                 <span className="hidden sm:inline">AFRICAN <span className="text-gold italic">LUXURY</span>,</span> <br className="hidden sm:block" />
                                 THOUGHTFULLY <br className="hidden sm:block" />
                                 CRAFTED
@@ -78,36 +78,42 @@ const Hero = () => {
                     </div>
 
                     {/* Main Visual - Overlapping Images */}
-                    <div className="w-full lg:w-1/2 relative mt-4 lg:mt-0 h-[450px] sm:h-[700px] lg:h-[800px] flex items-center justify-center">
+                    <div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[600px] sm:h-[700px] lg:h-[800px] flex items-center justify-center">
 
-                        {/* Right Video (Woman) - HIDDEN ON MOBILE for performance */}
-                        {!isMobile && (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 1.1, x: 50 }}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                className="absolute top-10 right-0 sm:right-0 w-3/5 sm:w-3/5 z-0 group"
-                            >
-                                <div className="relative overflow-hidden shadow-2xl aspect-[4/5]">
-                                    <video
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                        preload="auto"
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
-                                        src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
-                                    />
-                                </div>
-                            </motion.div>
-                        )}
+                        {/* Right Video (Woman) - Now shown on mobile */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 1.1, x: 50 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="absolute top-0 right-[-5%] sm:right-0 w-3/4 sm:w-3/5 z-0 group"
+                            style={{
+                                filter: useTransform(scrollY, [0, 400], ["grayscale(100%)", "grayscale(0%)"])
+                            }}
+                            whileHover={{ filter: "grayscale(0%)", transition: { duration: 0.5 } }}
+                        >
+                            <div className="relative overflow-hidden shadow-2xl aspect-[4/5]">
+                                <video
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="auto"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                                    src="https://res.cloudinary.com/dmfll2dqf/video/upload/v1770877280/Video_Generation_Complete_1_so2l5y.mp4"
+                                />
+                            </div>
+                        </motion.div>
 
-                        {/* Bottom Left Image (Man) - Load with high priority but static */}
+                        {/* Bottom Left Image (Man) */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9, x: -50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             transition={{ duration: 1.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute bottom-0 left-0 sm:left-0 w-2/5 sm:w-2/5 z-20 group"
+                            className="absolute bottom-0 left-[-5%] sm:left-0 w-1/2 sm:w-2/5 z-20 group"
+                            style={{
+                                filter: useTransform(scrollY, [0, 400], ["grayscale(100%)", "grayscale(0%)"])
+                            }}
+                            whileHover={{ filter: "grayscale(0%)", transition: { duration: 0.5 } }}
                         >
                             <div className="relative overflow-hidden shadow-2xl aspect-[3/4] border-4 border-cream/20">
                                 <img
@@ -115,7 +121,7 @@ const Hero = () => {
                                     alt="Men's Finery"
                                     fetchpriority="high"
                                     decoding="async"
-                                    className="w-full h-full object-cover object-top sepia-[0.3] hover:sepia-0 transition-all duration-1000 group-hover:scale-110"
+                                    className="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-110"
                                 />
                             </div>
                         </motion.div>
@@ -125,8 +131,12 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative w-[85%] sm:w-2/3 z-10 group cursor-pointer"
+                            className="relative w-[90%] sm:w-2/3 z-10 group cursor-pointer"
                             onClick={() => setIsVideoOpen(true)}
+                            style={{
+                                filter: useTransform(scrollY, [0, 400], ["grayscale(100%)", "grayscale(0%)"])
+                            }}
+                            whileHover={{ filter: "grayscale(0%)", transition: { duration: 0.5 } }}
                         >
                             <div className="relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(76,13,2,0.5)] border-[8px] md:border-[12px] border-cream aspect-video">
                                 <video

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ScrollColorWrapper from './ScrollColorWrapper';
 
 import handImg from '../assets/Hand.webp';
 import halfFaceImg from '../assets/halfface.webp';
@@ -45,13 +46,13 @@ const HeritageStack = () => {
         <section className="relative bg-[#A68966] z-30 pt-20 pb-0 mb-[-60vh]">
             {/* Header Section - Standardized Spacing */}
             <div className="container mx-auto px-8 lg:px-16 pb-12 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-maroon/10 pb-8">
-                    <div className="max-w-2xl">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-maroon/10 pb-8">
+                    <div className="max-w-2xl text-left">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
-                            className="text-4xl md:text-5xl lg:text-7xl font-serif text-white uppercase leading-[1.1] tracking-tighter"
+                            className="text-4xl md:text-5xl lg:text-7xl font-serif text-white uppercase leading-[1.1] tracking-tighter text-left"
                         >
                             THE HERITAGE <br />
                             <span className="text-white italic">COLLECTION.</span>
@@ -74,17 +75,19 @@ const HeritageStack = () => {
                         <div className={`w-full min-h-[60vh] md:h-[80vh] ${card.bgColor} rounded-sm shadow-2xl overflow-hidden border border-white/5 flex flex-col lg:flex-row relative group`}>
                             {/* Visual Side */}
                             <div className="w-full lg:w-1/2 h-[300px] md:h-auto overflow-hidden relative">
-                                <motion.img
-                                    initial={{ scale: 1.2 }}
-                                    whileInView={{ scale: 1 }}
-                                    transition={{ duration: 2 }}
-                                    src={card.img}
-                                    alt={card.title}
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
-                                />
-                                <div className={`absolute inset-0 bg-maroon/10 mix-blend-multiply opacity-50`}></div>
+                                <ScrollColorWrapper className="w-full h-full">
+                                    <motion.img
+                                        initial={{ scale: 1.2 }}
+                                        whileInView={{ scale: 1 }}
+                                        transition={{ duration: 2 }}
+                                        src={card.img}
+                                        alt={card.title}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+                                    />
+                                </ScrollColorWrapper>
+                                <div className={`absolute inset-0 bg-maroon/10 mix-blend-multiply opacity-50 pointer-events-none`}></div>
                             </div>
 
                             {/* Content Side */}

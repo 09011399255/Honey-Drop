@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Instagram, Twitter, Mail } from 'lucide-react';
+import ScrollColorWrapper from './ScrollColorWrapper';
 import togetherImg from '../assets/Togetherness.webp';
 
 const Footer = () => {
@@ -55,14 +56,16 @@ const Footer = () => {
                             transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                             className="mt-8 sm:mt-20 w-full max-w-5xl aspect-video md:aspect-[21/9] overflow-hidden rounded-sm border-4 border-cream/10 shadow-2xl relative"
                         >
-                            <img
-                                src={togetherImg}
-                                alt="The Collective"
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-[2s] ease-out scale-110 group-hover:scale-100"
-                            />
-                            <div className="absolute inset-0 bg-maroon/20 mix-blend-multiply opacity-60 group-hover:opacity-0 transition-opacity duration-1000"></div>
+                            <ScrollColorWrapper className="w-full h-full">
+                                <img
+                                    src={togetherImg}
+                                    alt="The Collective"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition-all duration-[2s] ease-out scale-110 group-hover:scale-100"
+                                />
+                            </ScrollColorWrapper>
+                            <div className="absolute inset-0 bg-maroon/20 mix-blend-multiply opacity-60 group-hover:opacity-0 transition-opacity duration-1000 pointer-events-none"></div>
                         </motion.div>
                     </div>
                 </div>
