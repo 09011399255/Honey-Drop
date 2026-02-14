@@ -3,9 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Search, Menu, X, Instagram, Twitter } from 'lucide-react';
 import logo from '../assets/HoneyDrop.svg';
 
-const Navbar = ({ onNavigate, activeView }) => {
+import { NavLink, Link, useLocation } from 'react-router-dom';
+
+const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,10 +23,10 @@ const Navbar = ({ onNavigate, activeView }) => {
     }, []);
 
     const navLinks = [
-        { name: 'HOME', id: 'LANDING' },
-        { name: 'MEN', id: 'MEN' },
-        { name: 'LADIES', id: 'LADIES' },
-        { name: 'NEW COLLECTION', id: 'NEW COLLECTION' },
+        { name: 'HOME', path: '/' },
+        { name: 'MEN', path: '/shop/MEN' },
+        { name: 'LADIES', path: '/shop/LADIES' },
+        { name: 'NEW COLLECTION', path: '/shop/NEW-COLLECTION' },
     ];
 
     return (
@@ -28,14 +35,14 @@ const Navbar = ({ onNavigate, activeView }) => {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${scrolled || activeView !== 'LANDING' ? 'bg-cream/80 backdrop-blur-xl py-4 shadow-sm' : 'bg-transparent py-8'
+                className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${scrolled || pathname !== '/' ? 'bg-cream/80 backdrop-blur-xl py-4 shadow-sm' : 'bg-transparent py-8'
                     }`}
             >
                 <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center text-maroon">
                     {/* Brand Logo */}
-                    <div
+                    <Link
                         className="flex items-center gap-4 group cursor-pointer"
-                        onClick={() => onNavigate('LANDING')}
+                        to="/"
                     >
                         <img src={logo} alt="Honey Drop Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         <div className="hidden md:block h-8 w-px bg-maroon/20 group-hover:h-10 transition-all duration-500"></div>
@@ -49,19 +56,25 @@ const Navbar = ({ onNavigate, activeView }) => {
                                 HONEY DROP
                             </motion.span>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Desktop Navigation Links */}
                     <div className="hidden lg:flex items-center gap-12">
                         {navLinks.map((link) => (
-                            <button
-                                key={link.id}
-                                onClick={() => onNavigate(link.id)}
-                                className={`text-[10px] font-bold tracking-[0.3em] transition-colors relative group ${activeView === link.id ? 'text-gold' : 'hover:text-gold'}`}
+                            <NavLink
+                                key={link.path}
+                                to={link.path}
+                                className={({ isActive }) =>
+                                    `text-[10px] font-bold tracking-[0.3em] transition-colors relative group ${isActive ? 'text-gold' : 'hover:text-gold text-maroon'}`
+                                }
                             >
-                                {link.name}
-                                <span className={`absolute -bottom-1 left-0 h-px bg-gold transition-all duration-500 ${activeView === link.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                            </button>
+                                {({ isActive }) => (
+                                    <>
+                                        {link.name}
+                                        <span className={`absolute -bottom-1 left-0 h-px bg-gold transition-all duration-500 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                                    </>
+                                )}
+                            </NavLink>
                         ))}
                     </div>
 
@@ -104,19 +117,22 @@ const Navbar = ({ onNavigate, activeView }) => {
 
                         <div className="flex flex-col gap-8">
                             {navLinks.map((link, idx) => (
-                                <motion.button
-                                    key={link.id}
+                                <motion.div
+                                    key={link.path}
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.1 * idx }}
-                                    onClick={() => {
-                                        onNavigate(link.id);
-                                        setMobileMenuOpen(false);
-                                    }}
-                                    className={`text-4xl font-serif uppercase tracking-tight text-left hover:text-gold transition-colors ${activeView === link.id ? 'text-gold' : ''}`}
                                 >
-                                    {link.name}
-                                </motion.button>
+                                    <NavLink
+                                        to={link.path}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={({ isActive }) =>
+                                            `text-4xl font-serif uppercase tracking-tight text-left transition-colors block ${isActive ? 'text-gold' : 'text-cream hover:text-gold'}`
+                                        }
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </motion.div>
                             ))}
                         </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronDown, X, Heart, ShoppingBag, Plus, Minus, ArrowRight, Camera, Maximize2 } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
 import ScrollColorWrapper from './ScrollColorWrapper';
 
 // --- STYLED ASSETS IMPORTS ---
@@ -62,7 +63,7 @@ const PRODUCTS = {
         { id: 11, name: "Heritage Headpiece", price: "$190", img: hijabiImg, category: "Accessory", subCategory: "Accessory", gallery: [hijabiImg] },
         { id: 12, name: "Crafted Ring", price: "$1,200", img: handImg, category: "Jewellery", subCategory: "Jewellery", gallery: [handImg, handgImg] },
     ],
-    "NEW COLLECTION": [
+    "NEW-COLLECTION": [
         { id: 13, name: "Beaded Heritage", price: "$410", img: beadImg, category: "Look 01", subCategory: "Exclusive", gallery: [beadImg] },
         { id: 14, name: "Structured Jacket", price: "$720", img: jacketImg, category: "Look 02", subCategory: "Outerwear", gallery: [jacketImg] },
         { id: 15, name: "Togetherness Silk", price: "$350", img: togetherImg, category: "Ensemble", subCategory: "Set", gallery: [togetherImg] },
@@ -74,13 +75,17 @@ const PRODUCTS = {
 const SUB_CATEGORIES = {
     MEN: ["All", "Shirts", "Outerwear", "Jeans", "Pants", "Jewellery"],
     LADIES: ["All", "Set", "Outerwear", "Lounge", "Jewellery", "Accessory"],
-    "NEW COLLECTION": ["All", "Exclusive", "Outerwear", "Set", "Jewellery"]
+    "NEW-COLLECTION": ["All", "Exclusive", "Outerwear", "Set", "Jewellery"]
 };
 
-const Shop = ({ category, onBack }) => {
+const Shop = () => {
+    const { category } = useParams();
+    const navigate = useNavigate();
     const [selectedSubCat, setSelectedSubCat] = useState("All");
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+
+    const onBack = () => navigate('/');
 
     const products = PRODUCTS[category] || [];
     const filteredProducts = selectedSubCat === "All"
@@ -118,8 +123,8 @@ const Shop = ({ category, onBack }) => {
                             animate={{ opacity: 1, y: 0 }}
                             className="text-6xl md:text-8xl lg:text-[10rem] font-serif text-maroon uppercase leading-[0.8] tracking-tighter"
                         >
-                            {category.split(" ")[0]} <br />
-                            <span className="text-gold italic pl-8 md:pl-20">{category.split(" ")[1] || "SERIES"}</span>
+                            {category?.replace("-", " ").split(" ")[0]} <br />
+                            <span className="text-gold italic pl-8 md:pl-20">{category?.replace("-", " ").split(" ")[1] || "SERIES"}</span>
                         </motion.h1>
                     </div>
 

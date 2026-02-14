@@ -8,39 +8,36 @@ import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import Shop from './components/Shop'
 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 function App() {
-  const [currentView, setCurrentView] = useState('LANDING');
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentView]);
-
   return (
-    <div className="min-h-screen bg-cream selection:bg-gold selection:text-maroon">
-      <Navbar onNavigate={(view) => setCurrentView(view)} activeView={currentView} />
+    <Router>
+      <div className="min-h-screen bg-cream selection:bg-gold selection:text-maroon">
+        <Navbar />
 
-      <main>
-        {currentView === 'LANDING' ? (
-          <>
-            <Hero />
-            <Craftsmanship />
-            <NewExpression />
-            <HeritageStack />
-            <Testimonials />
-          </>
-        ) : (
-          <Shop
-            category={currentView}
-            onBack={() => setCurrentView('LANDING')}
-          />
-        )}
-      </main>
+        <main>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <Craftsmanship />
+                <NewExpression />
+                <HeritageStack />
+                <Testimonials />
+              </>
+            } />
+            <Route path="/shop/:category" element={<Shop />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-      <Footer />
+        <Footer />
 
-      {/* Subtle overlay texture across the whole site */}
-      <div className="fixed inset-0 pointer-events-none opacity-20 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] z-50"></div>
-    </div>
+        {/* Subtle overlay texture across the whole site */}
+        <div className="fixed inset-0 pointer-events-none opacity-20 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] z-50"></div>
+      </div>
+    </Router>
   )
 }
 
