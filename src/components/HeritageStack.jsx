@@ -31,7 +31,7 @@ const HeritageStack = () => {
             hoverTextColor: "text-cream",
             btnBg: "bg-maroon",
             id: "heritage",
-            path: "/shop/LADIES"
+            path: "/shop/MEN"
         },
         {
             title: "Designed Beyond Seasons and Trends",
@@ -42,7 +42,7 @@ const HeritageStack = () => {
             hoverTextColor: "text-maroon",
             btnBg: "bg-cream",
             id: "longevity",
-            path: "/shop/MEN"
+            path: "/shop/LADIES"
         }
     ];
 
@@ -105,7 +105,10 @@ const HeritageStack = () => {
                                 </p>
 
                                 {/* Fixed Button Logic - Explicit Hover Colors */}
-                                <Link to={card.path} className={`w-fit flex items-center gap-6 border px-10 py-5 transition-all duration-700 group/btn relative overflow-hidden ${card.textColor === "text-cream" ? "border-cream/20 hover:border-cream" : "border-maroon/20 hover:border-maroon"}`}>
+                                <Link
+                                    to={card.path}
+                                    className={`w-fit flex items-center gap-6 border px-10 py-5 transition-all duration-700 group/btn relative overflow-hidden ${card.textColor === "text-cream" ? "border-cream/20 hover:border-cream" : "border-maroon/20 hover:border-maroon"}`}
+                                >
                                     <span className={`uppercase text-[10px] tracking-[0.5em] font-bold relative z-10 transition-colors duration-500 ${card.textColor === "text-cream" ? "text-cream group-hover/btn:text-maroon" : "text-maroon group-hover/btn:text-cream"}`}>
                                         Explore Collection
                                     </span>

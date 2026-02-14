@@ -10,9 +10,9 @@ import maleImg from '../assets/Jean.webp';
 
 const NewExpression = () => {
     const collections = [
-        { title: "Bespoke Outerwear", img: ladyImg, label: "Heritage 2026", path: "/shop/NEW-COLLECTION" },
-        { title: "Structured Silhouettes", img: cargoImg, label: "Modern Fit", path: "/shop/NEW-COLLECTION" },
-        { title: "Urban Essential", img: maleImg, label: "Core Series", path: "/shop/NEW-COLLECTION" }
+        { title: "Bespoke Outerwear", img: ladyImg, label: "Heritage 2026", path: "/shop/LADIES" },
+        { title: "Structured Silhouettes", img: cargoImg, label: "Modern Fit", path: "/shop/MEN" },
+        { title: "Urban Essential", img: maleImg, label: "Core Series", path: "/shop/MEN" }
     ];
 
     return (
@@ -73,10 +73,14 @@ const NewExpression = () => {
                             {/* Gradient Overlay for Depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700"></div>
 
+                            {/* Hover UI */}
                             <motion.div
                                 className="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center gap-6"
                             >
-                                <Link to={item.path} className="w-full flex items-center justify-between border border-cream/30 bg-maroon/40 backdrop-blur-xl px-8 py-4 rounded-none hover:bg-cream hover:text-maroon transition-all duration-500 group/link">
+                                <Link
+                                    to={item.path}
+                                    className="w-full flex items-center justify-between border border-cream/30 bg-maroon/40 backdrop-blur-xl px-8 py-4 rounded-none hover:bg-cream hover:text-maroon transition-all duration-500 group/link"
+                                >
                                     <span className="uppercase tracking-[0.4em] font-bold text-[10px] text-cream group-hover/link:text-maroon">
                                         Explore Collection
                                     </span>

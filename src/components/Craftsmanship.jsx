@@ -13,7 +13,7 @@ const Craftsmanship = () => {
     const cards = [
         { title: "The Ring Collection", img: handImg, path: "/shop/LADIES" },
         { title: "Timeless Earrings", img: halfFaceImg, path: "/shop/LADIES" },
-        { title: "Diamond Series", img: handgImg, path: "/shop/NEW-COLLECTION" }
+        { title: "Diamond Series", img: handgImg, path: "/shop/LADIES" }
     ];
 
     return (
@@ -85,7 +85,10 @@ const Craftsmanship = () => {
 
                             {/* Button Overlay - Forced Contrast */}
                             <div className="absolute inset-0 flex items-end justify-center pb-12 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                                <Link to={card.path} className="flex items-center space-x-6 border border-cream/50 bg-maroon/60 backdrop-blur-md px-10 py-5 rounded-none hover:bg-cream transition-all duration-500 group/btn">
+                                <Link
+                                    to={card.path}
+                                    className="flex items-center space-x-6 border border-cream/50 bg-maroon/60 backdrop-blur-md px-10 py-5 rounded-none hover:bg-cream transition-all duration-500 group/btn"
+                                >
                                     <span className="uppercase tracking-[0.3em] font-bold text-xs text-cream group-hover/btn:text-maroon transition-colors duration-500">
                                         Explore Collection
                                     </span>

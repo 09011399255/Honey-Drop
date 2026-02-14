@@ -1,25 +1,30 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
 
 const ScrollColorWrapper = ({ children, className = "" }) => {
     const ref = useRef(null);
+    const hoverVal = useMotionValue(0);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start end", "end start"]
     });
 
-    // Dynamic color transition based on scroll position - center of screen is fully colored
-    const filter = useTransform(
+    const scrollGrayscale = useTransform(
         scrollYProgress,
-        [0, 0.25, 0.75, 1],
-        ["grayscale(100%)", "grayscale(0%)", "grayscale(0%)", "grayscale(100%)"]
+        [0, 0.4],
+        [100, 0]
     );
+
+    // Combine scroll and hover: grayscale = scrollGrayscale * (1 - hoverValue)
+    const filter = useMotionTemplate`grayscale(${useTransform([scrollGrayscale, hoverVal], ([s, h]) => s * (1 - h))}%)`;
 
     return (
         <motion.div
             ref={ref}
+            onMouseEnter={() => animate(hoverVal, 1, { duration: 0.5 })}
+            onMouseLeave={() => animate(hoverVal, 0, { duration: 0.5 })}
             style={{ filter }}
-            whileHover={{ filter: "grayscale(0%)", transition: { duration: 0.5 } }}
             className={`relative overflow-hidden ${className}`}
         >
             {children}
