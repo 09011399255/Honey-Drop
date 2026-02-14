@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ScrollColorWrapper from './ScrollColorWrapper';
 
 import handImg from '../assets/Hand.webp';
@@ -18,7 +19,8 @@ const HeritageStack = () => {
             textColor: "text-cream",
             hoverTextColor: "text-maroon",
             btnBg: "bg-cream",
-            id: "craftsmanship"
+            id: "craftsmanship",
+            path: "/shop/NEW-COLLECTION"
         },
         {
             title: "Strength Rooted in Heritage and Identity",
@@ -28,7 +30,8 @@ const HeritageStack = () => {
             textColor: "text-maroon",
             hoverTextColor: "text-cream",
             btnBg: "bg-maroon",
-            id: "heritage"
+            id: "heritage",
+            path: "/shop/LADIES"
         },
         {
             title: "Designed Beyond Seasons and Trends",
@@ -38,7 +41,8 @@ const HeritageStack = () => {
             textColor: "text-cream",
             hoverTextColor: "text-maroon",
             btnBg: "bg-cream",
-            id: "longevity"
+            id: "longevity",
+            path: "/shop/MEN"
         }
     ];
 
@@ -101,13 +105,13 @@ const HeritageStack = () => {
                                 </p>
 
                                 {/* Fixed Button Logic - Explicit Hover Colors */}
-                                <button className={`w-fit flex items-center gap-6 border px-10 py-5 transition-all duration-700 group/btn relative overflow-hidden ${card.textColor === "text-cream" ? "border-cream/20 hover:border-cream" : "border-maroon/20 hover:border-maroon"}`}>
+                                <Link to={card.path} className={`w-fit flex items-center gap-6 border px-10 py-5 transition-all duration-700 group/btn relative overflow-hidden ${card.textColor === "text-cream" ? "border-cream/20 hover:border-cream" : "border-maroon/20 hover:border-maroon"}`}>
                                     <span className={`uppercase text-[10px] tracking-[0.5em] font-bold relative z-10 transition-colors duration-500 ${card.textColor === "text-cream" ? "text-cream group-hover/btn:text-maroon" : "text-maroon group-hover/btn:text-cream"}`}>
                                         Explore Collection
                                     </span>
                                     <ArrowRight className={`w-5 h-5 transition-all duration-500 relative z-10 group-hover/btn:translate-x-2 ${card.textColor === "text-cream" ? "text-cream group-hover/btn:text-maroon" : "text-maroon group-hover/btn:text-cream"}`} />
                                     <div className={`absolute inset-0 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ${card.textColor === "text-cream" ? "bg-cream" : "bg-maroon"}`}></div>
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>

@@ -40,7 +40,7 @@ const Footer = () => {
                         </motion.p>
 
                         <Link
-                            to="/shop/MEN"
+                            to="/shop/NEW-COLLECTION"
                             className="flex items-center gap-6 border border-cream/30 bg-maroon/40 backdrop-blur-xl px-10 py-5 sm:px-12 sm:py-6 rounded-none hover:bg-cream transition-all duration-500 group/btn"
                         >
                             <span className="uppercase tracking-[0.4em] font-bold text-[10px] text-cream group-hover/btn:text-maroon transition-colors duration-500">

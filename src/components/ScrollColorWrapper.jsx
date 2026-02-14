@@ -8,12 +8,11 @@ const ScrollColorWrapper = ({ children, className = "" }) => {
         offset: ["start end", "end start"]
     });
 
-    // Fade from grayscale(100%) to grayscale(0%) as it enters the viewport
-    // We want it to be fully colored by the time it's roughly in the middle of the screen
+    // Dynamic color transition based on scroll position - center of screen is fully colored
     const filter = useTransform(
         scrollYProgress,
-        [0, 0.4],
-        ["grayscale(100%)", "grayscale(0%)"]
+        [0, 0.25, 0.75, 1],
+        ["grayscale(100%)", "grayscale(0%)", "grayscale(0%)", "grayscale(100%)"]
     );
 
     return (

@@ -115,7 +115,7 @@ const Shop = () => {
                             className="flex items-center gap-3 text-maroon/60 hover:text-maroon mb-8 group transition-colors uppercase tracking-[0.3em] text-[10px] font-bold"
                         >
                             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                            Back to Heritage
+                            Back to Home
                         </motion.button>
 
                         <motion.h1
